@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #131313;
+  --color-foreground: #e5e2e1;
+  --color-primary: #e9c176;
+  --color-primary-container: #c5a059;
+  --color-on-primary: #412d00;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #d1c5b4;
+  --color-surface: #131313;
+  --color-surface-container: #201f1f;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-outline-variant: #4e4639;
+  --color-secondary: #c8c6c5;
+
+  --font-headline: "Newsreader", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.cinematic-gradient {
+  background: linear-gradient(to bottom, transparent 0%, rgba(19,19,19,0.8) 70%, #131313 100%);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

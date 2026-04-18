@@ -104,7 +104,7 @@ export const MinimalistHero = ({
       </header>
 
       {/* Main Content Area */}
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
+      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center gap-8 pt-8 md:grid-cols-3 md:gap-0 md:pt-0">
         {/* Left Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,12 +129,12 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[300px] w-[300px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
+            className="absolute z-0 h-[220px] w-[220px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
           ></motion.div>
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 h-auto w-56 scale-150 object-cover md:w-64 lg:w-72"
+            className="relative z-10 h-auto w-44 scale-110 object-cover md:w-64 md:scale-150 lg:w-72"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -157,7 +157,7 @@ export const MinimalistHero = ({
           transition={{ duration: 0.6, delay: 1.2 }}
           className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
         >
-          <h1 className="text-7xl font-extrabold text-foreground md:text-8xl lg:text-9xl">
+          <h1 className="text-5xl font-extrabold text-foreground md:text-8xl lg:text-9xl">
             {overlayText.part1}
             <br />
             {overlayText.part2}

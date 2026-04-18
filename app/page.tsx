@@ -73,7 +73,7 @@ export default function Home() {
               The Visual <span className="italic text-primary">Canvas</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
             {galleryImages.map((img, i) => (
               <div key={i} className="group aspect-[3/4] overflow-hidden bg-black">
                 <Image
@@ -81,7 +81,7 @@ export default function Home() {
                   alt={img.alt}
                   width={600}
                   height={800}
-                  className="h-full w-full object-cover object-top grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="h-full w-full object-cover object-top transition-all duration-700 group-hover:scale-105 md:grayscale md:group-hover:grayscale-0"
                 />
               </div>
             ))}

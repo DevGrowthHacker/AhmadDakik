@@ -2,8 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+type IconComponent = React.ComponentType<{ className?: string }>;
 
 interface MinimalistHeroProps {
   logoText: string;
@@ -16,7 +17,7 @@ interface MinimalistHeroProps {
     part1: string;
     part2: string;
   };
-  socialLinks: { icon: LucideIcon; href: string }[];
+  socialLinks: { icon: IconComponent; href: string }[];
   locationText: string;
   className?: string;
 }
@@ -41,7 +42,7 @@ const SocialIcon = ({
   icon: Icon,
 }: {
   href: string;
-  icon: LucideIcon;
+  icon: IconComponent;
 }) => (
   <a
     href={href}

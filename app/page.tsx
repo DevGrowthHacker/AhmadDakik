@@ -1,8 +1,25 @@
 "use client";
 
-import { Globe, ExternalLink, Film } from "lucide-react";
 import { MinimalistHero } from "@/components/ui/minimalist-hero";
 import Image from "next/image";
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden="true"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 const navLinks = [
   { label: "HOME", href: "#" },
@@ -13,9 +30,7 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { icon: Globe, href: "#" },
-  { icon: ExternalLink, href: "#" },
-  { icon: Film, href: "#" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/ahmad_dakikk/" },
 ];
 
 const galleryImages = [
@@ -43,7 +58,7 @@ export default function Home() {
         imageAlt="Ahmad Dakik — Lebanese Actor"
         overlayText={{
           part1: "AHMAD",
-          part2: "DAKIK.",
+          part2: "DAKIK",
         }}
         socialLinks={socialLinks}
         locationText="Beirut, Lebanon"
@@ -51,9 +66,9 @@ export default function Home() {
       />
 
       {/* Gallery Section */}
-      <section className="bg-surface py-24" id="gallery">
+      <section className="bg-surface py-16" id="gallery">
         <div className="mx-auto max-w-7xl px-8">
-          <div className="mb-16 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <h2 className="font-[family-name:var(--font-headline)] text-4xl font-bold">
               The Visual <span className="italic text-primary">Canvas</span>
             </h2>
@@ -75,13 +90,13 @@ export default function Home() {
       </section>
 
       {/* Credits & Reel Section */}
-      <section className="bg-surface-container-low py-24" id="reel">
+      <section className="bg-surface-container-low py-16" id="reel">
         <div className="mx-auto max-w-7xl px-8">
-          <div className="grid grid-cols-1 gap-20 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {/* Physical Profile & Skills */}
-            <div className="space-y-12 lg:col-span-1">
+            <div className="space-y-8 lg:col-span-1">
               <div>
-                <h3 className="mb-8 flex items-center gap-4 font-[family-name:var(--font-headline)] text-2xl font-bold">
+                <h3 className="mb-6 flex items-center gap-4 font-[family-name:var(--font-headline)] text-2xl font-bold">
                   Physical <span className="text-primary">Profile</span>
                 </h3>
                 <div className="space-y-4 font-[family-name:var(--font-body)]">
@@ -103,7 +118,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="mb-8 flex items-center gap-4 font-[family-name:var(--font-headline)] text-2xl font-bold">
+                <h3 className="mb-6 flex items-center gap-4 font-[family-name:var(--font-headline)] text-2xl font-bold">
                   Specialized <span className="text-primary">Skills</span>
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -111,6 +126,8 @@ export default function Home() {
                     "Arabic (Native)",
                     "English (Fluent)",
                     "French (Conversational)",
+                    "Turkish",
+                    "Comedy",
                     "Martial Arts (Kickboxing)",
                     "Horse Riding",
                     "Levantine Dialect",
@@ -127,33 +144,51 @@ export default function Home() {
             </div>
 
             {/* Credits */}
-            <div className="space-y-16 lg:col-span-2" id="credits">
+            <div className="lg:col-span-2" id="credits">
               <div>
-                <h3 className="mb-10 font-[family-name:var(--font-headline)] text-3xl font-bold">
+                <h3 className="mb-8 font-[family-name:var(--font-headline)] text-3xl font-bold">
                   Selected Credits
                 </h3>
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {[
                     {
-                      year: "2023",
-                      title: "Echoes of the Valley",
-                      detail:
-                        "Lead: Tarek | Dir. Samer Maroun | Feature Film",
+                      year: "2024",
+                      title: "Al Qadar",
+                      detail: "TV Series",
+                      href: "https://www.imdb.com/title/tt35283099/",
                     },
                     {
-                      year: "2022",
-                      title: "Beirut Noir",
-                      detail:
-                        "Recurring: Elias | Al Jadeed TV | Drama Series",
+                      year: "2023",
+                      title: "Al Thaman",
+                      detail: "TV Series",
+                      href: "https://www.imdb.com/title/tt26469117/",
+                    },
+                    {
+                      year: "2023",
+                      title: "Crystal",
+                      detail: "TV Series",
+                      href: "https://www.imdb.com/title/tt27715192/",
                     },
                     {
                       year: "2021",
-                      title: "The Last Night at Baalbeck",
-                      detail:
-                        "Lead: Omar | Independent Theatre | Stage",
+                      title: "Hades Aleb",
+                      detail: "TV Series",
+                      href: "https://www.imdb.com/title/tt20036974/",
+                    },
+                    {
+                      year: "2021",
+                      title: "Loghz Al Aqwiya",
+                      detail: "Dir. Elie Rammouz | TV Series",
+                      href: "https://elcinema.com/en/work/2068850/cast",
                     },
                   ].map((credit) => (
-                    <div key={credit.year} className="group flex gap-6">
+                    <a
+                      key={`${credit.year}-${credit.title}`}
+                      href={credit.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex gap-6"
+                    >
                       <div className="pt-1 font-[family-name:var(--font-label)] font-bold text-primary">
                         {credit.year}
                       </div>
@@ -165,33 +200,8 @@ export default function Home() {
                           {credit.detail}
                         </p>
                       </div>
-                    </div>
+                    </a>
                   ))}
-                </div>
-              </div>
-
-              {/* Reel Placeholder */}
-              <div className="group relative flex aspect-video cursor-pointer flex-col items-center justify-center overflow-hidden bg-surface-container-highest">
-                <Image
-                  src="/images/photo-4.jpeg"
-                  alt="Showreel thumbnail"
-                  fill
-                  className="object-cover opacity-30 grayscale transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary bg-black/20 backdrop-blur-sm transition-transform group-hover:scale-110">
-                    <span
-                      className="material-symbols-outlined text-4xl text-primary"
-                      style={{
-                        fontVariationSettings: "'FILL' 1",
-                      }}
-                    >
-                      play_arrow
-                    </span>
-                  </div>
-                  <span className="font-[family-name:var(--font-label)] text-xs font-bold uppercase tracking-widest">
-                    Showreel 2024
-                  </span>
                 </div>
               </div>
             </div>
@@ -200,9 +210,9 @@ export default function Home() {
       </section>
 
       {/* About & Contact */}
-      <section className="bg-surface py-24" id="about">
+      <section className="bg-surface py-16" id="about">
         <div className="mx-auto max-w-7xl px-8">
-          <div className="grid grid-cols-1 items-center gap-20 md:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <div className="relative">
               <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
               <Image
@@ -234,7 +244,7 @@ export default function Home() {
                 </p>
               </div>
               <div
-                className="border-t border-outline-variant/20 pt-12"
+                className="border-t border-outline-variant/20 pt-8"
                 id="contact"
               >
                 <h3 className="mb-6 font-[family-name:var(--font-headline)] text-2xl font-bold">
@@ -264,7 +274,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-20 w-full bg-[#1c1b1b] px-8 py-12">
+      <footer className="w-full bg-[#1c1b1b] px-8 py-10">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <span className="font-[family-name:var(--font-headline)] text-xl italic text-white">
@@ -275,15 +285,14 @@ export default function Home() {
             </span>
           </div>
           <div className="flex gap-12">
-            {["IMDb", "Instagram", "LinkedIn"].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-xs uppercase tracking-widest text-white/40 transition-colors hover:text-primary"
-              >
-                {link}
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/ahmad_dakikk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs uppercase tracking-widest text-white/40 transition-colors hover:text-primary"
+            >
+              Instagram
+            </a>
           </div>
         </div>
       </footer>

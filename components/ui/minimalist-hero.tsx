@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type IconComponent = React.ComponentType<{ className?: string }>;
@@ -66,6 +66,7 @@ export const MinimalistHero = ({
   locationText,
   className,
 }: MinimalistHeroProps) => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
       className={cn(
@@ -94,14 +95,47 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
+          onClick={() => setMenuOpen(true)}
+          className="relative z-50 flex flex-col space-y-1.5 p-2 md:hidden"
           aria-label="Open menu"
+          aria-expanded={menuOpen}
         >
           <span className="block h-0.5 w-6 bg-foreground"></span>
           <span className="block h-0.5 w-6 bg-foreground"></span>
           <span className="block h-0.5 w-5 bg-foreground"></span>
         </motion.button>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 bg-background md:hidden"
+          >
+            <button
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+              className="absolute right-8 top-8 text-3xl text-foreground"
+            >
+              &times;
+            </button>
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-2xl font-medium tracking-widest text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main Content Area */}
       <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center gap-8 pt-8 md:grid-cols-3 md:gap-0 md:pt-0">
@@ -110,7 +144,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 text-center md:order-1 md:text-left"
+          className="z-20 order-3 text-center md:order-1 md:text-left"
         >
           <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">
             {mainText}
@@ -129,12 +163,12 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[220px] w-[220px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
+            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
           ></motion.div>
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 h-auto w-44 scale-110 object-cover md:w-64 md:scale-150 lg:w-72"
+            className="relative z-10 h-auto w-60 origin-bottom scale-110 object-cover md:w-64 md:origin-center md:scale-150 lg:w-72"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -155,7 +189,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
+          className="z-20 order-2 flex items-center justify-center text-center md:order-3 md:justify-start"
         >
           <h1 className="text-5xl font-extrabold text-foreground md:text-8xl lg:text-9xl">
             {overlayText.part1}

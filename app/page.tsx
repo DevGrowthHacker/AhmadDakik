@@ -42,7 +42,6 @@ const galleryImages = [
   { src: "/images/photo-6.jpeg", alt: "Ahmad Dakik — street style" },
   { src: "/images/photo-7.jpeg", alt: "Ahmad Dakik — leather jacket portrait" },
   { src: "/images/photo-8.jpeg", alt: "Ahmad Dakik — full body shot" },
-  { src: "/images/photo-9.jpeg", alt: "Ahmad Dakik — profile headshot" },
 ];
 
 export default function Home() {
